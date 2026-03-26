@@ -1,0 +1,68 @@
+<template>
+  <section class="hero-glow pt-40 pb-28 px-6 dot-pattern relative overflow-hidden">
+    <div class="max-w-4xl mx-auto text-center relative">
+      <div class="inline-flex items-center gap-2 badge text-xs font-semibold px-3.5 py-1.5 rounded-full mb-8">
+        <span class="w-1.5 h-1.5 rounded-full bg-vex-500 animate-pulse"></span>
+        v0.1.0 — Now available on npm
+      </div>
+
+      <h1 class="text-6xl md:text-7xl font-extrabold tracking-tight leading-tight mb-6 text-zinc-900">
+        The web framework<br/>
+        <span class="gradient-text">built on nothing.</span>
+      </h1>
+
+      <p class="text-xl text-zinc-500 max-w-2xl mx-auto leading-relaxed mb-10">
+        Vex is a minimalist meta-framework for vanilla JavaScript. File-based routing,
+        SSR/CSR/SSG/ISR, Vue-like reactivity — without the overhead.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#quickstart"
+           class="flex items-center gap-2 bg-vex-600 hover:bg-vex-700 text-white font-semibold px-6 py-3.5 rounded-xl transition-colors text-base shadow-lg shadow-vex-200">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5,3 19,12 5,21"/>
+          </svg>
+          Get started
+        </a>
+        <div class="flex items-center gap-3 bg-zinc-900 text-zinc-300 font-mono text-sm px-5 py-3.5 rounded-xl">
+          <span class="text-zinc-500 select-none">$</span>
+          <span>npm install @cfdez11/vex</span>
+          <button onclick="navigator.clipboard.writeText('npm install @cfdez11/vex')"
+                  class="ml-1 text-zinc-500 hover:text-white transition-colors">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="mt-16 flex flex-wrap items-center justify-center gap-10 text-sm text-zinc-400 font-medium">
+        <div class="flex items-center gap-2">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-vex-400">
+            <circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/>
+          </svg>
+          Zero config
+        </div>
+        <div class="flex items-center gap-2">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-vex-400">
+            <polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/>
+          </svg>
+          Pure JavaScript
+        </div>
+        <div class="flex items-center gap-2">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-vex-400">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+          </svg>
+          MIT License
+        </div>
+        <div class="flex items-center gap-2">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-vex-400">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+          Node.js ≥ 18
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

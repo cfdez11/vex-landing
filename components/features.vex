@@ -1,0 +1,77 @@
+<template>
+  <section id="features" class="py-24 px-6 bg-zinc-50">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="text-vex-600 font-semibold text-sm tracking-widest uppercase mb-3">Features</p>
+        <h2 class="text-4xl font-bold text-zinc-900">Everything you need, nothing you don't</h2>
+        <p class="mt-4 text-zinc-500 text-lg max-w-xl mx-auto">Built to stay out of your way. Vex gives you powerful primitives without magic.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <div class="card-hover bg-white rounded-2xl p-7 border border-zinc-100 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-vex-50 flex items-center justify-center mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-zinc-900 text-base mb-2">File-based Routing</h3>
+          <p class="text-zinc-500 text-sm leading-relaxed">Drop a <code class="font-mono text-xs bg-zinc-100 px-1.5 py-0.5 rounded">page.vex</code> anywhere in <code class="font-mono text-xs bg-zinc-100 px-1.5 py-0.5 rounded">pages/</code> and it becomes a route. Dynamic segments with <code class="font-mono text-xs bg-zinc-100 px-1.5 py-0.5 rounded">[param]</code> folders.</p>
+        </div>
+
+        <div class="card-hover bg-white rounded-2xl p-7 border border-zinc-100 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-vex-50 flex items-center justify-center mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23,4 23,10 17,10"/><polyline points="1,20 1,14 7,14"/>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-zinc-900 text-base mb-2">Vue-like Reactivity</h3>
+          <p class="text-zinc-500 text-sm leading-relaxed">Familiar <code class="font-mono text-xs bg-zinc-100 px-1.5 py-0.5 rounded">reactive()</code>, <code class="font-mono text-xs bg-zinc-100 px-1.5 py-0.5 rounded">computed()</code>, <code class="font-mono text-xs bg-zinc-100 px-1.5 py-0.5 rounded">effect()</code>, and <code class="font-mono text-xs bg-zinc-100 px-1.5 py-0.5 rounded">watch()</code> primitives — no virtual DOM.</p>
+        </div>
+
+        <div class="card-hover bg-white rounded-2xl p-7 border border-zinc-100 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-vex-50 flex items-center justify-center mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-zinc-900 text-base mb-2">SSR, CSR, SSG &amp; ISR</h3>
+          <p class="text-zinc-500 text-sm leading-relaxed">Choose the rendering strategy per page. Mix and match Server-Side, Client-Side, Static Generation, and Incremental Static Regeneration.</p>
+        </div>
+
+        <div class="card-hover bg-white rounded-2xl p-7 border border-zinc-100 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-vex-50 flex items-center justify-center mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-zinc-900 text-base mb-2">Nested Layouts</h3>
+          <p class="text-zinc-500 text-sm leading-relaxed">Root and custom layouts with <code class="font-mono text-xs bg-zinc-100 px-1.5 py-0.5 rounded">layout.vex</code>. Compose structure without repeating yourself.</p>
+        </div>
+
+        <div class="card-hover bg-white rounded-2xl p-7 border border-zinc-100 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-vex-50 flex items-center justify-center mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-zinc-900 text-base mb-2">SPA Navigation</h3>
+          <p class="text-zinc-500 text-sm leading-relaxed">Client-side routing with no full reloads. Automatic link prefetching on hover for instant page transitions.</p>
+        </div>
+
+        <div class="card-hover bg-white rounded-2xl p-7 border border-zinc-100 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-vex-50 flex items-center justify-center mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-zinc-900 text-base mb-2">Streaming &amp; Suspense</h3>
+          <p class="text-zinc-500 text-sm leading-relaxed">Progressive loading with fallback UI. Streams HTML as it's ready, keeping your app fast from the first byte.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</template>

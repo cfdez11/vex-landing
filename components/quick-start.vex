@@ -1,0 +1,68 @@
+<template>
+  <section id="quickstart" class="py-24 px-6 bg-white">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-14">
+        <p class="text-vex-600 font-semibold text-sm tracking-widest uppercase mb-3">Quick Start</p>
+        <h2 class="text-4xl font-bold text-zinc-900">Up in 60 seconds</h2>
+        <p class="mt-4 text-zinc-500 text-lg">From zero to a running Vex app in three steps.</p>
+      </div>
+
+      <div class="space-y-6">
+
+        <div class="flex gap-5 items-start">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-vex-600 text-white text-sm font-bold flex items-center justify-center">1</div>
+          <div class="flex-1">
+            <p class="text-sm font-medium text-zinc-600 mb-2">Install the package</p>
+            <div class="code-block rounded-xl overflow-hidden">
+              <pre class="p-4 text-sm font-mono"><code><span style="color:#6272a4">$</span> <span style="color:#f8f8f2">npm install @cfdez11/vex</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-5 items-start">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-vex-600 text-white text-sm font-bold flex items-center justify-center">2</div>
+          <div class="flex-1">
+            <p class="text-sm font-medium text-zinc-600 mb-2">Create <code class="font-mono text-xs bg-zinc-100 px-1.5 py-0.5 rounded">server.js</code> and your first page at <code class="font-mono text-xs bg-zinc-100 px-1.5 py-0.5 rounded">pages/page.vex</code></p>
+            <div class="code-block rounded-xl overflow-hidden">
+              <div class="flex items-center gap-2 px-4 py-2.5 border-b border-zinc-800">
+                <span class="text-zinc-500 font-mono text-xs">pages/page.vex</span>
+              </div>
+              <pre class="p-4 text-sm font-mono leading-relaxed"><code><span style="color:#a78bfa">&lt;script</span> <span style="color:#fbbf24">server</span><span style="color:#a78bfa">&gt;</span>
+  <span style="color:#93bbfb">const</span> <span style="color:#f8f8f2">metadata</span> <span style="color:#f8f8f2">= {</span>
+    <span style="color:#f8f8f2">title</span><span style="color:#f8f8f2">:</span> <span style="color:#fbbf24">"My Vex App"</span>
+  <span style="color:#f8f8f2">}</span>
+<span style="color:#a78bfa">&lt;/script&gt;</span>
+
+<span style="color:#a78bfa">&lt;template&gt;</span>
+  <span style="color:#a78bfa">&lt;h1</span> <span style="color:#fbbf24">class</span><span style="color:#f8f8f2">=</span><span style="color:#fbbf24">"text-3xl font-bold"</span><span style="color:#a78bfa">&gt;</span>
+    <span style="color:#f8f8f2">Hello from Vex!</span>
+  <span style="color:#a78bfa">&lt;/h1&gt;</span>
+<span style="color:#a78bfa">&lt;/template&gt;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-5 items-start">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-vex-600 text-white text-sm font-bold flex items-center justify-center">3</div>
+          <div class="flex-1">
+            <p class="text-sm font-medium text-zinc-600 mb-2">Start the dev server</p>
+            <div class="code-block rounded-xl overflow-hidden">
+              <pre class="p-4 text-sm font-mono"><code><span style="color:#6272a4">$</span> <span style="color:#f8f8f2">node --watch server.js</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-10 p-5 bg-vex-50 border border-vex-100 rounded-2xl flex items-start gap-4">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <p class="text-sm text-vex-800">
+          Visit <strong>localhost:3001</strong> and your page is live. Vex auto-discovers all
+          <code class="font-mono text-xs bg-vex-100 px-1 py-0.5 rounded">page.vex</code> files — no route registration needed.
+        </p>
+      </div>
+    </div>
+  </section>
+</template>
