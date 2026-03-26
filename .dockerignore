@@ -1,0 +1,4 @@
+node_modules/
+
+# Ignore Vex's build output
+.vexjs/
