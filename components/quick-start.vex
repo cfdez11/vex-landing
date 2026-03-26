@@ -1,5 +1,5 @@
 <template>
-  <section id="quickstart" class="py-24 px-6 bg-white">
+  <section id="quickstart" class="scroll-mt-24 py-24 px-6 bg-white">
     <div class="max-w-3xl mx-auto">
       <div class="text-center mb-14">
         <p class="text-vex-600 font-semibold text-sm tracking-widest uppercase mb-3">Quick Start</p>
@@ -33,6 +33,7 @@
   <span style="color:#f8f8f2">}</span>
 <span style="color:#a78bfa">&lt;/script&gt;</span>
 
+<span style="color:#6272a4">&lt;!-- template --&gt;</span>
 <span style="color:#a78bfa">&lt;template&gt;</span>
   <span style="color:#a78bfa">&lt;h1</span> <span style="color:#fbbf24">class</span><span style="color:#f8f8f2">=</span><span style="color:#fbbf24">"text-3xl font-bold"</span><span style="color:#a78bfa">&gt;</span>
     <span style="color:#f8f8f2">Hello from Vex!</span>

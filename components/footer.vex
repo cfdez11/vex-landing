@@ -1,0 +1,18 @@
+<template>
+  <footer class="border-t border-zinc-100 py-10 px-6 bg-white">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2.5">
+        <img src="/logo.png" alt="Vex logo" class="w-6 h-6" />
+        <span class="font-semibold text-zinc-900 text-sm">VEX</span>
+        <span class="text-zinc-300 text-sm mx-1">—</span>
+        <span class="text-zinc-400 text-sm">MIT License</span>
+      </div>
+      <p class="text-zinc-400 text-sm">A vanilla JavaScript meta-framework. Built with simplicity in mind.</p>
+      <div class="flex items-center gap-5 text-sm text-zinc-400">
+        <a href="https://www.npmjs.com/package/@cfdez11/vex" target="_blank" class="hover:text-zinc-700 transition-colors">npm</a>
+        <a href="https://github.com/cfdez11/vex" target="_blank" class="hover:text-zinc-700 transition-colors">GitHub</a>
+        <a href="#" class="hover:text-zinc-700 transition-colors">Docs</a>
+      </div>
+    </div>
+  </footer>
+</template>

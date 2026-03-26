@@ -1,5 +1,5 @@
 <template>
-  <section id="rendering" class="py-24 px-6 bg-zinc-50">
+  <section id="rendering" class="scroll-mt-24 py-24 px-6 bg-zinc-50">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
         <p class="text-vex-600 font-semibold text-sm tracking-widest uppercase mb-3">Rendering</p>
@@ -9,7 +9,7 @@
 
       <div class="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
 
-        <div class="strategy-card bg-white p-7 rounded-2xl border border-zinc-100 shadow-sm" style="border-left-color: #7c3aed;">
+        <div class="strategy-card bg-white p-7 rounded-2xl border border-zinc-100 shadow-sm">
           <div class="flex items-center gap-3 mb-4">
             <span class="font-mono font-bold text-vex-600 text-sm bg-vex-50 px-2.5 py-1 rounded-lg">SSR</span>
             <h3 class="font-semibold text-zinc-900">Server-Side Rendering</h3>
@@ -17,7 +17,7 @@
           <p class="text-zinc-500 text-sm leading-relaxed">HTML rendered on every request. Great for dynamic, user-specific content. Optimal for SEO with real-time data.</p>
         </div>
 
-        <div class="strategy-card bg-white p-7 rounded-2xl border border-zinc-100 shadow-sm" style="border-left-color: #6366f1;">
+        <div class="strategy-card bg-white p-7 rounded-2xl border border-zinc-100 shadow-sm">
           <div class="flex items-center gap-3 mb-4">
             <span class="font-mono font-bold text-indigo-600 text-sm bg-indigo-50 px-2.5 py-1 rounded-lg">CSR</span>
             <h3 class="font-semibold text-zinc-900">Client-Side Rendering</h3>
@@ -25,7 +25,7 @@
           <p class="text-zinc-500 text-sm leading-relaxed">Rendering happens in the browser. Ideal for highly interactive pages with reactive data that updates frequently.</p>
         </div>
 
-        <div class="strategy-card bg-white p-7 rounded-2xl border border-zinc-100 shadow-sm" style="border-left-color: #0ea5e9;">
+        <div class="strategy-card bg-white p-7 rounded-2xl border border-zinc-100 shadow-sm">
           <div class="flex items-center gap-3 mb-4">
             <span class="font-mono font-bold text-sky-600 text-sm bg-sky-50 px-2.5 py-1 rounded-lg">SSG</span>
             <h3 class="font-semibold text-zinc-900">Static Site Generation</h3>
@@ -33,7 +33,7 @@
           <p class="text-zinc-500 text-sm leading-relaxed">Pages pre-built at compile time. Maximum performance, deploy anywhere. Perfect for docs, blogs, and marketing pages.</p>
         </div>
 
-        <div class="strategy-card bg-white p-7 rounded-2xl border border-zinc-100 shadow-sm" style="border-left-color: #10b981;">
+        <div class="strategy-card bg-white p-7 rounded-2xl border border-zinc-100 shadow-sm">
           <div class="flex items-center gap-3 mb-4">
             <span class="font-mono font-bold text-emerald-600 text-sm bg-emerald-50 px-2.5 py-1 rounded-lg">ISR</span>
             <h3 class="font-semibold text-zinc-900">Incremental Static Regen.</h3>

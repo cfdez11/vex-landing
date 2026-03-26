@@ -75,6 +75,7 @@
 <span style="color:#a78bfa">&lt;/script&gt;</span>
 
 <span style="color:#6272a4">&lt;!-- template --&gt;</span>
+<span style="color:#a78bfa">&lt;template&gt;</span>
 <span style="color:#a78bfa">&lt;ul</span> <span style="color:#fbbf24">class</span><span style="color:#f8f8f2">=</span><span style="color:#fbbf24">"user-list"</span><span style="color:#a78bfa">&gt;</span>
   <span style="color:#a78bfa">&lt;li</span>
     <span style="color:#fbbf24">x-for</span><span style="color:#f8f8f2">=</span><span style="color:#fbbf24">"user in users"</span>
@@ -83,6 +84,7 @@
     <span style="color:#f8f8f2">{{userName}}</span>
   <span style="color:#a78bfa">&lt;/li&gt;</span>
 <span style="color:#a78bfa">&lt;/ul&gt;</span>
+<span style="color:#a78bfa">&lt;/template&gt;</span>
 
 <span style="color:#6272a4">&lt;!-- reactive client logic --&gt;</span>
 <span style="color:#a78bfa">&lt;script</span> <span style="color:#fbbf24">client</span><span style="color:#a78bfa">&gt;</span>
