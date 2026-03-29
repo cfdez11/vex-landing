@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@cfdez11/vex':
-        specifier: ^0.10.5
-        version: 0.10.5
+        specifier: ^0.10.7
+        version: 0.10.7
     devDependencies:
       npm-run-all:
         specifier: ^4.1.5
@@ -21,8 +21,8 @@ importers:
 
 packages:
 
-  '@cfdez11/vex@0.10.5':
-    resolution: {integrity: sha512-plh211fI6w9wrTLTqq6ibDRMhSwDvHyp+/lnCjhZqOZVcHk5bhnujvgckZ7Pyjbi6r4Gs3JQ7gmaNovjBeCC2A==}
+  '@cfdez11/vex@0.10.7':
+    resolution: {integrity: sha512-FmtXZ57MEZHySKeJ69gYBwoyd5KZCia4a4e+YFbemf9qLYRF1OwhUj/WKPv9lTv0Ovo8cHmWt5lrcCbTFbYtfw==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -918,7 +918,7 @@ packages:
 
 snapshots:
 
-  '@cfdez11/vex@0.10.5':
+  '@cfdez11/vex@0.10.7':
     dependencies:
       dom-serializer: 2.0.0
       dotenv: 16.6.1
