@@ -1,11 +1,16 @@
- {                                                                                                                      
-    "$schema": "https://openapi.vercel.sh/vercel.json",                                                                     
-    "installCommand": "pnpm install --frozen-lockfile",
-    "buildCommand": "pnpm build:css && pnpm build",                                                                         
-    "functions": {                                             
-      "api/index.js": {                                                                                                     
-        "includeFiles": "root.html,pages/**,components/**,.vexjs/**,public/**,vex.config.json"
-      }                                                                                                                     
-    },                                                         
-    "rewrites": [{ "source": "/(.*)", "destination": "/api/index.js" }]                                                     
-  }    
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "buildCommand": "pnpm build:css && pnpm build",
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "{root.html,pages/**,components/**,.vexjs/**,public/**,vex.config.json}"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/index.js"
+    }
+  ]
+}
