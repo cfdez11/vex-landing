@@ -2,5 +2,15 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "pnpm install --frozen-lockfile",
   "buildCommand": "pnpm build:css && pnpm build",
-  "rewrites": [{ "source": "/(.*)", "destination": "/api/index.js" }]
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "node_modules/**"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/index.js"
+    }
+  ]
 }
