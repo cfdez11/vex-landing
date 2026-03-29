@@ -1,6 +1,6 @@
 <script client>
-  import Navbar from "components/navbar.vex";
-  import Footer from "components/footer.vex";
+  import Navbar from "@/components/navbar.vex";
+  import Footer from "@/components/footer.vex";
   const props = xprops({
     children: { default: null },
   });
