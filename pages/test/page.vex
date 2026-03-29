@@ -1,23 +1,22 @@
 <script client>
-  // import Hero from "components/hero.vex";
-  // import Features from "components/features.vex";
-  // import CodePreview from "components/code-preview.vex";
-  // import RenderingStrategies from "components/rendering-strategies.vex";
-  // import QuickStart from "components/quick-start.vex";
-  // import Cta from "components/cta.vex";
+  import Counter from "components/counter.vex"
+  import CounterDisplay from "components/counter-display.vex"
 
   const metadata = {
-    title: "Vex — Vanilla JS Meta-Framework",
-    description: "A minimalist meta-framework for vanilla JavaScript. File-based routing, SSR/CSR/SSG/ISR, Vue-like reactivity — without the overhead.",
+    title: "Vex — Counter Demo",
+    description: "Demostración de estado reactivo compartido entre componentes.",
   };
 </script>
 
 <template>
-  <div>pepe</div>
-  <!-- <Hero />
-  <Features />
-  <Cta />
-  <QuickStart />
-  <RenderingStrategies />
-  <CodePreview /> -->
+  <div class="min-h-screen bg-zinc-50 flex flex-col items-center justify-center gap-8 p-12">
+    <h1 class="text-3xl font-bold text-zinc-900">Estado compartido entre componentes</h1>
+    <p class="text-zinc-500 text-center max-w-md">
+      Ambos componentes comparten el mismo <code class="font-mono text-xs bg-zinc-100 px-1.5 py-0.5 rounded">counter</code> reactivo desde <code class="font-mono text-xs bg-zinc-100 px-1.5 py-0.5 rounded">utils/context.js</code>.
+    </p>
+    <div class="grid grid-cols-2 gap-8 w-full max-w-xl">
+      <Counter />
+      <CounterDisplay />
+    </div>
+  </div>
 </template>

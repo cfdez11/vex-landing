@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vex — Vanilla JS Meta-Framework</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vex: {
+              50:  '#f5f3ff',
+              100: '#ede9fe',
+              200: '#ddd6fe',
+              300: '#c4b5fd',
+              400: '#a78bfa',
+              500: '#8b5cf6',
+              600: '#7c3aed',
+              700: '#6d28d9',
+              800: '#5b21b6',
+              900: '#4c1d95',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    * { -webkit-font-smoothing: antialiased; }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 50%, #6366f1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-glow {
+      background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(139,92,246,0.12) 0%, transparent 70%);
+    }
+
+    .card-hover {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(124,58,237,0.1);
+    }
+
+    .code-block {
+      background: #0f0f13;
+      border: 1px solid #1e1e2e;
+    }
+
+    .badge {
+      background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+      color: #6d28d9;
+    }
+
+    .dot-pattern {
+      background-image: radial-gradient(circle, #d4d4d8 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    .strategy-card {
+      border-left: 3px solid;
+      transition: all 0.2s;
+    }
+    .strategy-card:hover { transform: translateX(4px); }
+
+    .nav-blur {
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.85);
+    }
+
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-white text-zinc-800 font-sans">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 nav-blur border-b border-zinc-100">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2.5">
+        <div class="w-7 h-7 rounded-lg bg-vex-600 flex items-center justify-center">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <path d="M3 3L8 13L13 3" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="font-bold text-lg tracking-tight text-zinc-900">vex</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm text-zinc-500 font-medium">
+        <a href="#features" class="hover:text-zinc-900 transition-colors">Features</a>
+        <a href="#rendering" class="hover:text-zinc-900 transition-colors">Rendering</a>
+        <a href="#quickstart" class="hover:text-zinc-900 transition-colors">Quick Start</a>
+        <a href="#" class="hover:text-zinc-900 transition-colors">Docs</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://github.com/cfdez11/vex" target="_blank"
+           class="flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-900 transition-colors font-medium">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          GitHub
+        </a>
+        <a href="#quickstart"
+           class="text-sm font-semibold bg-vex-600 hover:bg-vex-700 text-white px-4 py-2 rounded-lg transition-colors">
+          Get Started
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-glow pt-40 pb-28 px-6 dot-pattern relative overflow-hidden">
+    <div class="max-w-4xl mx-auto text-center relative">
+      <div class="inline-flex items-center gap-2 badge text-xs font-semibold px-3.5 py-1.5 rounded-full mb-8">
+        <span class="w-1.5 h-1.5 rounded-full bg-vex-500 animate-pulse"></span>
+        v0.1.0 — Now available on npm
+      </div>
+
+      <h1 class="text-6xl md:text-7xl font-extrabold tracking-tight leading-tight mb-6 text-zinc-900">
+        The web framework<br/>
+        <span class="gradient-text">built on nothing.</span>
+      </h1>
+
+      <p class="text-xl text-zinc-500 max-w-2xl mx-auto leading-relaxed mb-10">
+        Vex is a minimalist meta-framework for vanilla JavaScript. File-based routing,
+        SSR/CSR/SSG/ISR, Vue-like reactivity — without the overhead.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#quickstart"
+           class="flex items-center gap-2 bg-vex-600 hover:bg-vex-700 text-white font-semibold px-6 py-3.5 rounded-xl transition-colors text-base shadow-lg shadow-vex-200">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5,3 19,12 5,21"/>
+          </svg>
+          Get started
+        </a>
+        <div class="flex items-center gap-3 bg-zinc-900 text-zinc-300 font-mono text-sm px-5 py-3.5 rounded-xl">
+          <span class="text-zinc-500 select-none">$</span>
+          <span>npm install @cfdez11/vex</span>
+          <button onclick="navigator.clipboard.writeText('npm install @cfdez11/vex')"
+                  class="ml-1 text-zinc-500 hover:text-white transition-colors">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats row -->
+      <div class="mt-16 flex flex-wrap items-center justify-center gap-10 text-sm text-zinc-400 font-medium">
+        <div class="flex items-center gap-2">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-vex-400"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+          Zero config
+        </div>
+        <div class="flex items-center gap-2">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-vex-400"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg>
+          Pure JavaScript
+        </div>
+        <div class="flex items-center gap-2">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-vex-400"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          MIT License
+        </div>
+        <div class="flex items-center gap-2">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-vex-400"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Node.js ≥ 18
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="py-24 px-6 bg-zinc-50">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="text-vex-600 font-semibold text-sm tracking-widest uppercase mb-3">Features</p>
+        <h2 class="text-4xl font-bold text-zinc-900">Everything you need, nothing you don't</h2>
+        <p class="mt-4 text-zinc-500 text-lg max-w-xl mx-auto">Built to stay out of your way. Vex gives you powerful primitives without magic.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- Feature cards -->
+        <div class="card-hover bg-white rounded-2xl p-7 border border-zinc-100 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-vex-50 flex items-center justify-center mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-zinc-900 text-base mb-2">File-based Routing</h3>
+          <p class="text-zinc-500 text-sm leading-relaxed">Drop a <code class="font-mono text-xs bg-zinc-100 px-1.5 py-0.5 rounded">page.html</code> anywhere in <code class="font-mono text-xs bg-zinc-100 px-1.5 py-0.5 rounded">pages/</code> and it becomes a route. Dynamic segments with <code class="font-mono text-xs bg-zinc-100 px-1.5 py-0.5 rounded">[param]</code> folders.</p>
+        </div>
+
+        <div class="card-hover bg-white rounded-2xl p-7 border border-zinc-100 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-vex-50 flex items-center justify-center mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23,4 23,10 17,10"/><polyline points="1,20 1,14 7,14"/>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-zinc-900 text-base mb-2">Vue-like Reactivity</h3>
+          <p class="text-zinc-500 text-sm leading-relaxed">Familiar <code class="font-mono text-xs bg-zinc-100 px-1.5 py-0.5 rounded">reactive()</code>, <code class="font-mono text-xs bg-zinc-100 px-1.5 py-0.5 rounded">computed()</code>, <code class="font-mono text-xs bg-zinc-100 px-1.5 py-0.5 rounded">effect()</code>, and <code class="font-mono text-xs bg-zinc-100 px-1.5 py-0.5 rounded">watch()</code> primitives built right in, without a virtual DOM.</p>
+        </div>
+
+        <div class="card-hover bg-white rounded-2xl p-7 border border-zinc-100 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-vex-50 flex items-center justify-center mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-zinc-900 text-base mb-2">SSR, CSR, SSG & ISR</h3>
+          <p class="text-zinc-500 text-sm leading-relaxed">Choose the rendering strategy per page. Server-Side, Client-Side, Static Generation, and Incremental Static Regeneration.</p>
+        </div>
+
+        <div class="card-hover bg-white rounded-2xl p-7 border border-zinc-100 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-vex-50 flex items-center justify-center mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-zinc-900 text-base mb-2">Nested Layouts</h3>
+          <p class="text-zinc-500 text-sm leading-relaxed">Root and custom layouts with <code class="font-mono text-xs bg-zinc-100 px-1.5 py-0.5 rounded">layout.html</code>. Compose structure without repeating yourself.</p>
+        </div>
+
+        <div class="card-hover bg-white rounded-2xl p-7 border border-zinc-100 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-vex-50 flex items-center justify-center mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-zinc-900 text-base mb-2">SPA Navigation</h3>
+          <p class="text-zinc-500 text-sm leading-relaxed">Client-side routing with no full reloads. Automatic link prefetching on hover for instant page transitions.</p>
+        </div>
+
+        <div class="card-hover bg-white rounded-2xl p-7 border border-zinc-100 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-vex-50 flex items-center justify-center mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-zinc-900 text-base mb-2">Streaming & Suspense</h3>
+          <p class="text-zinc-500 text-sm leading-relaxed">Progressive loading with fallback UI. Streams HTML as it's ready, keeping your app feeling fast from the first byte.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TEMPLATE SYNTAX -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="text-vex-600 font-semibold text-sm tracking-widest uppercase mb-3">Template Syntax</p>
+          <h2 class="text-4xl font-bold text-zinc-900 leading-tight mb-5">
+            HTML-first,<br/>nothing to compile.
+          </h2>
+          <p class="text-zinc-500 text-lg leading-relaxed mb-8">
+            Write components in plain <code class="font-mono text-sm bg-zinc-100 px-1.5 py-0.5 rounded text-zinc-700">.html</code> files with familiar directives. No JSX, no build step for templates.
+          </p>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-vex-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#7c3aed" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <span class="font-semibold text-zinc-800 text-sm">Directives:</span>
+                <span class="text-zinc-500 text-sm ml-1"><code class="font-mono text-xs bg-zinc-100 px-1 py-0.5 rounded">v-if</code>, <code class="font-mono text-xs bg-zinc-100 px-1 py-0.5 rounded">v-for</code>, <code class="font-mono text-xs bg-zinc-100 px-1 py-0.5 rounded">@click</code>, <code class="font-mono text-xs bg-zinc-100 px-1 py-0.5 rounded">:attr</code></span>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-vex-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#7c3aed" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <span class="font-semibold text-zinc-800 text-sm">Interpolation:</span>
+                <span class="text-zinc-500 text-sm ml-1">Double curly brace <code class="font-mono text-xs bg-zinc-100 px-1 py-0.5 rounded">{"{{ value }}"}</code> syntax</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-vex-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#7c3aed" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <span class="font-semibold text-zinc-800 text-sm">Server & Client components</span>
+                <span class="text-zinc-500 text-sm ml-1">with scoped scripts and styles</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-vex-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#7c3aed" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <span class="font-semibold text-zinc-800 text-sm">Tailwind CSS</span>
+                <span class="text-zinc-500 text-sm ml-1">integrated out of the box</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-block rounded-2xl overflow-hidden shadow-xl">
+          <div class="flex items-center gap-2 px-5 py-3.5 border-b border-zinc-800">
+            <div class="w-3 h-3 rounded-full bg-red-400 opacity-70"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-400 opacity-70"></div>
+            <div class="w-3 h-3 rounded-full bg-green-400 opacity-70"></div>
+            <span class="ml-3 text-zinc-500 font-mono text-xs">pages/users/page.html</span>
+          </div>
+          <pre class="p-6 text-sm font-mono leading-relaxed overflow-x-auto"><code><span class="text-zinc-500">&lt;!-- server script --&gt;</span>
+<span class="text-vex-400">&lt;script</span> <span class="text-yellow-400">server</span><span class="text-vex-400">&gt;</span>
+<span class="text-blue-400">export async function</span> <span class="text-green-400">load</span><span class="text-white">()</span> <span class="text-white">{</span>
+  <span class="text-blue-400">const</span> <span class="text-white">users</span> <span class="text-white">=</span> <span class="text-blue-400">await</span> <span class="text-white">fetchUsers()</span>
+  <span class="text-blue-400">return</span> <span class="text-white">{ users }</span>
+<span class="text-white">}</span>
+<span class="text-vex-400">&lt;/script&gt;</span>
+
+<span class="text-zinc-500">&lt;!-- template --&gt;</span>
+<span class="text-vex-400">&lt;ul</span> <span class="text-yellow-400">class</span><span class="text-white">=</span><span class="text-orange-300">"user-list"</span><span class="text-vex-400">&gt;</span>
+  <span class="text-vex-400">&lt;li</span>
+    <span class="text-yellow-400">v-for</span><span class="text-white">=</span><span class="text-orange-300">"user in users"</span>
+    <span class="text-yellow-400">:key</span><span class="text-white">=</span><span class="text-orange-300">"user.id"</span>
+  <span class="text-vex-400">&gt;</span>
+    <span class="text-white">{{ user.name }}</span>
+  <span class="text-vex-400">&lt;/li&gt;</span>
+<span class="text-vex-400">&lt;/ul&gt;</span>
+
+<span class="text-zinc-500">&lt;!-- reactive client logic --&gt;</span>
+<span class="text-vex-400">&lt;script&gt;</span>
+<span class="text-blue-400">const</span> <span class="text-white">count</span> <span class="text-white">=</span> <span class="text-green-400">reactive</span><span class="text-white">(</span><span class="text-orange-300">0</span><span class="text-white">)</span>
+<span class="text-vex-400">&lt;/script&gt;</span></code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RENDERING STRATEGIES -->
+  <section id="rendering" class="py-24 px-6 bg-zinc-50">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="text-vex-600 font-semibold text-sm tracking-widest uppercase mb-3">Rendering</p>
+        <h2 class="text-4xl font-bold text-zinc-900">Your strategy, per page</h2>
+        <p class="mt-4 text-zinc-500 text-lg max-w-xl mx-auto">Pick the right rendering mode for each route. Mix and match freely.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+
+        <div class="strategy-card bg-white p-7 rounded-2xl border border-zinc-100 shadow-sm" style="border-left-color: #7c3aed;">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="font-mono font-bold text-vex-600 text-sm bg-vex-50 px-2.5 py-1 rounded-lg">SSR</span>
+            <h3 class="font-semibold text-zinc-900">Server-Side Rendering</h3>
+          </div>
+          <p class="text-zinc-500 text-sm leading-relaxed">HTML rendered on every request. Great for dynamic, user-specific content. Optimal for SEO with real-time data.</p>
+        </div>
+
+        <div class="strategy-card bg-white p-7 rounded-2xl border border-zinc-100 shadow-sm" style="border-left-color: #6366f1;">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="font-mono font-bold text-indigo-600 text-sm bg-indigo-50 px-2.5 py-1 rounded-lg">CSR</span>
+            <h3 class="font-semibold text-zinc-900">Client-Side Rendering</h3>
+          </div>
+          <p class="text-zinc-500 text-sm leading-relaxed">Rendering happens in the browser. Ideal for highly interactive pages with reactive data that updates frequently.</p>
+        </div>
+
+        <div class="strategy-card bg-white p-7 rounded-2xl border border-zinc-100 shadow-sm" style="border-left-color: #0ea5e9;">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="font-mono font-bold text-sky-600 text-sm bg-sky-50 px-2.5 py-1 rounded-lg">SSG</span>
+            <h3 class="font-semibold text-zinc-900">Static Site Generation</h3>
+          </div>
+          <p class="text-zinc-500 text-sm leading-relaxed">Pages pre-built at compile time. Maximum performance, deploy anywhere. Perfect for docs, blogs, and marketing pages.</p>
+        </div>
+
+        <div class="strategy-card bg-white p-7 rounded-2xl border border-zinc-100 shadow-sm" style="border-left-color: #10b981;">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="font-mono font-bold text-emerald-600 text-sm bg-emerald-50 px-2.5 py-1 rounded-lg">ISR</span>
+            <h3 class="font-semibold text-zinc-900">Incremental Static Regen.</h3>
+          </div>
+          <p class="text-zinc-500 text-sm leading-relaxed">Static pages that refresh after a set interval. Get the speed of static with the freshness of server rendering.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK START -->
+  <section id="quickstart" class="py-24 px-6 bg-white">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-14">
+        <p class="text-vex-600 font-semibold text-sm tracking-widest uppercase mb-3">Quick Start</p>
+        <h2 class="text-4xl font-bold text-zinc-900">Up in 60 seconds</h2>
+        <p class="mt-4 text-zinc-500 text-lg">From zero to a running Vex app in three commands.</p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Step 1 -->
+        <div class="flex gap-5 items-start">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-vex-600 text-white text-sm font-bold flex items-center justify-center">1</div>
+          <div class="flex-1">
+            <p class="text-sm font-medium text-zinc-600 mb-2">Install the package</p>
+            <div class="code-block rounded-xl overflow-hidden">
+              <pre class="p-4 text-sm font-mono text-zinc-200">npm install @cfdez11/vex</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flex gap-5 items-start">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-vex-600 text-white text-sm font-bold flex items-center justify-center">2</div>
+          <div class="flex-1">
+            <p class="text-sm font-medium text-zinc-600 mb-2">Create your first page at <code class="font-mono text-xs bg-zinc-100 px-1.5 py-0.5 rounded">pages/page.html</code></p>
+            <div class="code-block rounded-xl overflow-hidden">
+              <div class="flex items-center gap-2 px-4 py-2.5 border-b border-zinc-800">
+                <span class="text-zinc-500 font-mono text-xs">pages/page.html</span>
+              </div>
+              <pre class="p-4 text-sm font-mono leading-relaxed"><code><span class="text-vex-400">&lt;h1&gt;</span><span class="text-white">Hello from Vex!</span><span class="text-vex-400">&lt;/h1&gt;</span>
+
+<span class="text-vex-400">&lt;script&gt;</span>
+<span class="text-blue-400">const</span> <span class="text-white">message</span> <span class="text-white">=</span> <span class="text-green-400">reactive</span><span class="text-white">(</span><span class="text-orange-300">'Hello, Vex!'</span><span class="text-white">)</span>
+<span class="text-vex-400">&lt;/script&gt;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="flex gap-5 items-start">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-vex-600 text-white text-sm font-bold flex items-center justify-center">3</div>
+          <div class="flex-1">
+            <p class="text-sm font-medium text-zinc-600 mb-2">Start the dev server</p>
+            <div class="code-block rounded-xl overflow-hidden">
+              <pre class="p-4 text-sm font-mono text-zinc-200">node --watch server.js</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 p-5 bg-vex-50 border border-vex-100 rounded-2xl flex items-start gap-4">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p class="text-sm text-vex-800">Visit <strong>localhost:3000</strong> and your page is live. Vex auto-discovers all <code class="font-mono text-xs bg-vex-100 px-1 py-0.5 rounded">page.html</code> files — no route registration needed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 px-6 bg-zinc-900">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="w-12 h-12 rounded-2xl bg-vex-600 flex items-center justify-center mx-auto mb-8">
+        <svg width="22" height="22" viewBox="0 0 16 16" fill="none">
+          <path d="M3 3L8 13L13 3" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h2 class="text-4xl font-bold text-white mb-5">Start building with Vex</h2>
+      <p class="text-zinc-400 text-lg mb-10 max-w-lg mx-auto">No boilerplate. No config files. Just files, routes, and reactivity.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#quickstart"
+           class="bg-vex-600 hover:bg-vex-500 text-white font-semibold px-7 py-3.5 rounded-xl transition-colors text-base">
+          Read the docs
+        </a>
+        <a href="https://github.com/cfdez11/vex" target="_blank"
+           class="flex items-center gap-2 border border-zinc-700 hover:border-zinc-500 text-zinc-300 hover:text-white font-semibold px-7 py-3.5 rounded-xl transition-colors text-base">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-zinc-100 py-10 px-6 bg-white">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2.5">
+        <div class="w-6 h-6 rounded-md bg-vex-600 flex items-center justify-center">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+            <path d="M3 3L8 13L13 3" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="font-semibold text-zinc-900 text-sm">vex</span>
+        <span class="text-zinc-300 text-sm ml-1">—</span>
+        <span class="text-zinc-400 text-sm">MIT License</span>
+      </div>
+      <p class="text-zinc-400 text-sm">
+        A vanilla JavaScript meta-framework. Built with simplicity in mind.
+      </p>
+      <div class="flex items-center gap-5 text-sm text-zinc-400">
+        <a href="#" class="hover:text-zinc-700 transition-colors">npm</a>
+        <a href="https://github.com/cfdez11/vex" target="_blank" class="hover:text-zinc-700 transition-colors">GitHub</a>
+        <a href="#" class="hover:text-zinc-700 transition-colors">Docs</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

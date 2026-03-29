@@ -8,17 +8,19 @@
     "node": ">=18"
   },
   "scripts": {
-    "dev":        "run-p dev:*",
-    "dev:server": "node --watch node_modules/@cfdez11/vex/server/index.js",
-    "dev:css":    "npx @tailwindcss/cli -i ./src/input.css -o ./public/styles.css --watch",
-    "build":      "node node_modules/@cfdez11/vex/server/prebuild.js",
-    "start":      "NODE_ENV=production node node_modules/@cfdez11/vex/server/index.js"
+    "dev": "run-p dev:server dev:css",
+    "dev:server": "vex dev",
+    "dev:css": "npx @tailwindcss/cli -i ./src/input.css -o ./public/styles.css --watch",
+    "build": "vex build",
+    "build:static": "vex build:static",
+    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./public/styles.css --minify",
+    "start": "vex start"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@cfdez11/vex": "^0.2.0"
+    "@cfdez11/vex": "^0.10.3"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5",
