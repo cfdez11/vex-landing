@@ -1,12 +1,9 @@
 <script server>
+  import Hero from "components/hero.vex";
   const metadata = {
     title: "Vex — Vanilla JS Meta-Framework",
     description: "A minimalist meta-framework for vanilla JavaScript. File-based routing, SSR/CSR/SSG/ISR, Vue-like reactivity — without the overhead.",
   };
-</script>
-  
-<script client>
-  import Hero from "components/hero.vex";
   import Features from "components/features.vex";
   import CodePreview from "components/code-preview.vex";
   import RenderingStrategies from "components/rendering-strategies.vex";

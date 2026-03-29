@@ -1,9 +1,18 @@
+<script server>
+  import { readFile } from 'fs/promises';
+
+  export async function getData() {
+    const pkg = JSON.parse(await readFile(process.cwd() + '/node_modules/@cfdez11/vex/package.json', 'utf-8'));
+    return { vexVersion: pkg.version };
+  }
+</script>
+
 <template>
   <section class="hero-glow pt-40 pb-28 px-6 dot-pattern relative overflow-hidden">
     <div class="max-w-4xl mx-auto text-center relative">
       <div class="inline-flex items-center gap-2 badge text-xs font-semibold px-3.5 py-1.5 rounded-full mb-8">
         <span class="w-1.5 h-1.5 rounded-full bg-vex-500 animate-pulse"></span>
-        v0.1.0 — Now available on npm
+        v{{vexVersion}} — Now available on npm
       </div>
 
       <h1 class="text-6xl md:text-7xl font-extrabold tracking-tight leading-tight mb-6 text-zinc-900">
