@@ -24,7 +24,6 @@
         <a href="/#features" class="hover:text-zinc-900 transition-colors">Features</a>
         <a href="/#rendering" class="hover:text-zinc-900 transition-colors">Rendering</a>
         <a href="/#quickstart" class="hover:text-zinc-900 transition-colors">Quick Start</a>
-        <a href="#" class="hover:text-zinc-900 transition-colors">Docs</a>
       </div>
 
       <div class="hidden md:flex items-center gap-3">

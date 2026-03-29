@@ -3,7 +3,7 @@
     <div class="max-w-3xl mx-auto">
       <div class="text-center mb-14">
         <p class="text-vex-600 font-semibold text-sm tracking-widest uppercase mb-3">Quick Start</p>
-        <h2 class="text-4xl font-bold text-zinc-900">Up in 60 seconds</h2>
+        <h2 class="text-3xl sm:text-4xl font-bold text-zinc-900">Up in 60 seconds</h2>
         <p class="mt-4 text-zinc-500 text-lg">From zero to a running Vex app in three steps.</p>
       </div>
 

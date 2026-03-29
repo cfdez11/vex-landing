@@ -11,7 +11,6 @@
       <div class="flex items-center gap-5 text-sm text-zinc-400">
         <a href="https://www.npmjs.com/package/@cfdez11/vex" target="_blank" class="hover:text-zinc-700 transition-colors">npm</a>
         <a href="https://github.com/cfdez11/vex" target="_blank" class="hover:text-zinc-700 transition-colors">GitHub</a>
-        <a href="#" class="hover:text-zinc-700 transition-colors">Docs</a>
       </div>
     </div>
   </footer>

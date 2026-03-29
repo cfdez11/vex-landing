@@ -3,7 +3,7 @@
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
         <p class="text-vex-600 font-semibold text-sm tracking-widest uppercase mb-3">Rendering</p>
-        <h2 class="text-4xl font-bold text-zinc-900">Your strategy, per page</h2>
+        <h2 class="text-3xl sm:text-4xl font-bold text-zinc-900">Your strategy, per page</h2>
         <p class="mt-4 text-zinc-500 text-lg max-w-xl mx-auto">Pick the right rendering mode for each route. Mix and match freely.</p>
       </div>
 
