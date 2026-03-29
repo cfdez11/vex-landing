@@ -4,7 +4,7 @@
   "buildCommand": "pnpm build:css && pnpm build",
   "functions": {
     "api/index.js": {
-      "includeFiles": "node_modules/**"
+      "includeFiles": "node_modules/**,pages/**,.vexjs/**,public/**,root.html"
     }
   },
   "rewrites": [
