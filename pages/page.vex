@@ -3,12 +3,14 @@
   import Features from "components/features.vex";
   import RenderingStrategies from "components/rendering-strategies.vex";
   import Cta from "components/cta.vex";
+  import CodePreview from "components/code-preview.vex";
+  import QuickStart from "components/quick-start.vex";
+  
   const metadata = {
     title: "Vex — Vanilla JS Meta-Framework",
     description: "A minimalist meta-framework for vanilla JavaScript. File-based routing, SSR/CSR/SSG/ISR, Vue-like reactivity — without the overhead.",
+    revalidate: 'never'
   };
-  import CodePreview from "components/code-preview.vex";
-  import QuickStart from "components/quick-start.vex";
 </script>
 
 <template>
